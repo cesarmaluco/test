@@ -17,11 +17,12 @@ export  class SignUp extends React.Component<any, IUser> {
 
     private showPanel: boolean = false;
     private _form : any;
+    private _role : string = "admin";
     private _callback: any;
     constructor(props: any, state: IUser) {
         super(props);
         this._form = props.context;   
-        this._callback = props.callback; 
+        this._role = props.role;
     }
 
     private signUp()
@@ -29,7 +30,7 @@ export  class SignUp extends React.Component<any, IUser> {
         fetch('http://localhost:1340/api/criarMensagem',{ method: 'POST',headers: { 'Content-Type': 'application/json'}, body: '{"mensagem":{' + 
 	                                                                            '"name": "' + this.refs["name"].value + '",' + 
                                                                             '"email" : "' + this.refs["email"].value + '",' +
-                                                                            '"roles": [{"type":"admin"}],' + 
+                                                                            '"roles": [{"type":"' + this._role + '"}],' + 
                                                                             '"pwd": "' + this.refs["pwd"].value + '"}}'}).then(res => res.json()).then(data => {
                                                                                   let _data = data; 
                                                                                   let _user : IUser = {nome:_data.name,email:_data.email,roles:_data.roles};

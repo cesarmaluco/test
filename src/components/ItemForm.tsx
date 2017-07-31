@@ -29,7 +29,7 @@ export  class ItemForm extends React.Component<any, IItem> {
                                                                                   let _data = data; 
                                                                                   let _item : IItem = {name:_data.name};
                                                                                   this._form.setState({status:"Ready",user:_item}); 
-                                                                                  this.showPanel = false;
+                                                                                  
                                                                                   this.forceUpdate();
                                                                             });
     }

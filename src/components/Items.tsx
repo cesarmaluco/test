@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { DefaultButton, IButtonProps } from 'office-ui-fabric-react/lib/Button';
 import { Panel, PanelType } from 'office-ui-fabric-react/lib/Panel';
-import {ItemForm} from './ItemForm';
+import { ItemForm } from './ItemForm';
 let _items: JSX.Element[];
 
 
@@ -39,10 +39,12 @@ export class Items extends React.Component<any, any> {
                 shouldUpdate = true;
             _items = _data.map((item: any, i: number): JSX.Element => {
                 return (
-                    <div key={item._id} className="ms-Grid-col ms-u-sm12 ms-u-md4 ms-u-lg4">
+                    <div className="ms-Grid-row" key={item._id}>
+                        <div className="ms-Grid-col ms-u-sm12 ms-u-md4 ms-u-lg4">
 
-                        {item.name}
+                            {item.name}
 
+                        </div>
                     </div>
                 );
             });
@@ -68,9 +70,11 @@ export class Items extends React.Component<any, any> {
                     onDismiss={() => { this._showForm = false }}
                     headerText='New Item'
                 >
-                   <ItemForm context={this}/>
+                    <ItemForm context={this} />
                 </Panel>
-                {_items}
+                <div className="ms-Grid">
+                    {_items}
+                </div>
             </div>
         );
     }

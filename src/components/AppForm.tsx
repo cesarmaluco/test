@@ -94,7 +94,10 @@ export  class AppForm extends React.Component<any, IReactCrudState> {
               
           </div>
            <div className="ms-Grid" style={{display:(this.state.user && this.state.user.roles[0].type == "user"?"block":"none")}}>
-              Items
+              <div className="ms-Grid-row">
+                 <p className="ms-Panel-headerText">Items</p> 
+                 <Items/>
+              </div>
           </div>
       </div>
       </div>
