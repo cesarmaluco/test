@@ -23,7 +23,7 @@ export interface IReactCrudState {
  
 }
 
-export  class EntityItems extends React.Component<any, IReactCrudState> {
+export  class AppForm extends React.Component<any, IReactCrudState> {
   
   private showPanel: boolean = true;
 
@@ -76,7 +76,7 @@ export  class EntityItems extends React.Component<any, IReactCrudState> {
         >
           <SignUp context={this} />
           <hr/>
-          <Login/>
+          <Login context={this}/>
         </Panel>
       </div>
       <div className="ms-Grid" style={{display:(!this.playersNotConfigured(this.props)?"block":"none")}}>

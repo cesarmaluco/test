@@ -1,9 +1,9 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 
-import { EntityItems } from "./components/UserForm";
+import { AppForm } from "./components/AppForm";
 
 ReactDOM.render(
-    <EntityItems />,
+    <AppForm />,
     document.getElementById("output")
 );

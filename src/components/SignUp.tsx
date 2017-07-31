@@ -27,10 +27,10 @@ export  class SignUp extends React.Component<any, IUser> {
     private signUp()
     {
         fetch('http://localhost:1340/api/criarMensagem',{ method: 'POST',headers: { 'Content-Type': 'application/json'}, body: '{"mensagem":{' + 
-	                                                                            '"name": "user 1",' + 
-                                                                            '"email" : "cesarng@gmail.com",' +
+	                                                                            '"name": "' + this.refs["name"].value + '",' + 
+                                                                            '"email" : "' + this.refs["email"].value + '",' +
                                                                             '"roles": [{"type":"admin"}],' + 
-                                                                            '"pwd": "123@123"}}'}).then(res => res.json()).then(data => {
+                                                                            '"pwd": "' + this.refs["pwd"].value + '"}}'}).then(res => res.json()).then(data => {
                                                                                   let _data = data; 
                                                                                   let _user : IUser = {nome:_data.name,email:_data.email,roles:_data.roles};
                                                                                   this._form.setState({status:"Ready",user:_user}); 
